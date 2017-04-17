@@ -3,19 +3,22 @@ var http = require('http');
 var staticServer = require('./tools/static-server');
 var edit = require('./tools/edit');
 var list = require('./tools/list');
+var opapi = require('./tools/opapi');
 
 var server = http.createServer(function (req, res) {
 
-    var path = req.url;
-    console.log(path);
+    var url = req.url;
 
-    if(path.indexOf('/statics/') > -1) {
+    if(url.indexOf('/op/') > -1) {
+        // delete or create or modify
+        opapi(req, res);
+    } else if(url.indexOf('/statics/') > -1) {
         // static resource
         staticServer(req, res);
-    } else if (path.indexOf('/list/') > -1) {
+    } else if (url.indexOf('/list/') > -1) {
         // list of markdown files
         list(req, res);
-    } else if (path.indexOf('/edit/') > -1) {
+    } else if (url.indexOf('/edit/') > -1) {
         //edit the specific file
         edit(req, res);
     } else {
