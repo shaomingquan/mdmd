@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/shaomingquan/anymarkdown#readme",
   "dependencies": {
-    "markdown-it": "^8.3.1",
     "waterbear": "^1.0.4"
   }
 }

@@ -15,7 +15,7 @@ function listFiles (req, res) {
         });
 
         res.end(render(listTpl, {
-            files: files
+            files: mkdowns
         }));
     });
 }
