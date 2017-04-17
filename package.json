@@ -1,0 +1,29 @@
+{
+  "name": "anymarkdown",
+  "version": "1.0.0",
+  "description": "write markdown anywhere",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaomingquan/anymarkdown.git"
+  },
+  "keywords": [
+    "markdown",
+    "static",
+    "server",
+    "cli"
+  ],
+  "author": "shaomingquan <1218525419@qq.com> (http://shaomingquan.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaomingquan/anymarkdown/issues"
+  },
+  "homepage": "https://github.com/shaomingquan/anymarkdown#readme",
+  "dependencies": {
+    "markdown-it": "^8.3.1",
+    "waterbear": "^1.0.4"
+  }
+}
