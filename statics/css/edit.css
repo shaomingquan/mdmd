@@ -30,6 +30,11 @@
 
 .filecontent {
     padding: 10px;
+    border: none;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    font-size: 14px;
 }
 
 .preview {

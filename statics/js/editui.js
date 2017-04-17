@@ -34,7 +34,7 @@
     });
 
     function renderPreview () {
-        var markdown = writing.innerText;
+        var markdown = writing.value;
         preview.innerHTML = md.render(markdown);
     }
 
@@ -47,7 +47,7 @@
                 type: 'modify',
                 data: {
                     title: title.innerText,
-                    content: writing.innerText
+                    content: writing.value
                 }
             }
         });
@@ -68,9 +68,22 @@
             }
         }, function () {
             window.filename =  newTitle;
+            window.history.replaceState({}, newTitle, '/edit/' + newTitle);
         })
     }
 
+    writing.addEventListener('keydown', function(e){
+        if(e.keyCode == 9){
+            e.preventDefault();
+            var indent = '    ';
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+            var selected = window.getSelection().toString();
+            selected = indent + selected.replace(/\n/g,'\n'+indent);
+            this.value = this.value.substring(0,start) + selected + this.value.substring(end);
+            this.setSelectionRange(start+indent.length,start+selected.length);
+        }
+    });
     writing.addEventListener('input', throttle(renderPreview, 200));
     writing.addEventListener('input', throttle(save, 3000));
     title.addEventListener('input', throttle(updateName, 1000));

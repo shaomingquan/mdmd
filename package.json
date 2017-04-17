@@ -1,5 +1,5 @@
 {
-  "name": "anymarkdown",
+  "name": "mdmd",
   "version": "1.0.0",
   "description": "write markdown anywhere",
   "main": "index.js",
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shaomingquan/anymarkdown.git"
+  },
+  "bin": {
+    "mdmd": "bin/mdmd"
   },
   "keywords": [
     "markdown",
