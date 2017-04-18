@@ -34,7 +34,7 @@
     });
 
     function renderPreview () {
-        var markdown = writing.value;
+        var markdown = myCodeMirror.getValue();
         preview.innerHTML = md.render(markdown);
     }
 
@@ -47,7 +47,7 @@
                 type: 'modify',
                 data: {
                     title: title.innerText,
-                    content: writing.value
+                    content: myCodeMirror.getValue()
                 }
             }
         });
@@ -81,6 +81,13 @@
         }
     }
 
+    function initCoder () {
+        window.myCodeMirror = CodeMirror(writing, {
+            value: document.getElementById('writingTmp').innerText,
+            mode: "markdown"
+        });
+    }
+
     writing.addEventListener('keydown', function(e){
         if(e.keyCode == 9){
             e.preventDefault();
@@ -98,6 +105,7 @@
     writing.addEventListener('paste', pasteHandler);
     title.addEventListener('input', throttle(updateName, 1000));
 
+    initCoder();
     renderPreview();
 
 } (window))

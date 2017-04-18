@@ -6,12 +6,14 @@
         <link rel="stylesheet" href="/statics/css/global.css">
         <link rel="stylesheet" href="/statics/css/edit.css">
         <link rel="stylesheet" href="/statics/css/highlight.css">
+        <link rel="stylesheet" href="/statics/css/codemirror.css">
     </head>
     <body>
         <div class="wrapper">
             <div class="left">
                 <div id="filename" class="filename" contenteditable="true"><%- filename.trim() %></div>
-                <textarea id="writing" class="filecontent" spellcheck="false"><%- filecontent %></textarea>
+                <div id="writingTmp" class="hidden"><%- filecontent %></div>
+                <div id="writing" class="filecontent"></div>
             </div>
             <div class="right">
                 <div id="preview" class="preview"></div>
@@ -21,6 +23,9 @@
     <script type="text/javascript">
         window.filename = <%- '"' + filename + '"' %>;
     </script>
+
+    <script src="/statics/js/codemirror.js"></script>
+    <script src="/statics/js/codemirror-markdown.js"></script>
     <script src="/statics/js/markdown-it.min.js"></script>
     <script src="/statics/js/highlight.min.js"></script>
     <script src="/statics/js/tools.js"></script>
