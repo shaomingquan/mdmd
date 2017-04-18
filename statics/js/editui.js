@@ -72,6 +72,15 @@
         })
     }
 
+    function pasteHandler (e) {
+        var cd = e.clipboardData.items[0];
+        if (cd.type.indexOf('image') > -1) {
+            tools.ajaxFile(cd.getAsFile(), function (res) {
+                console.log(res);
+            })
+        }
+    }
+
     writing.addEventListener('keydown', function(e){
         if(e.keyCode == 9){
             e.preventDefault();
@@ -86,6 +95,7 @@
     });
     writing.addEventListener('input', throttle(renderPreview, 200));
     writing.addEventListener('input', throttle(save, 3000));
+    writing.addEventListener('paste', pasteHandler);
     title.addEventListener('input', throttle(updateName, 1000));
 
     renderPreview();
