@@ -30,7 +30,10 @@ var server = http.createServer(function (req, res) {
         //edit the specific file
         edit(req, res);
     } else {
-        res.end ('hello');
+        res.writeHead(302, {
+            Location: '/list/'
+        });
+        res.end ();
     }
 
 });

@@ -25,14 +25,14 @@
     overflow-y: scroll;
 }
 .wrapper > .left {
-    border-right: 1px solid #ccc;
+    border-right: 1px dashed #ddd;
     padding-top: 60px;
     position: relative;
 }
 
 .filename {
     height: 60px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px dashed #ddd;
     line-height: 60px;
     padding-left: 20px;
     font-size: 22px;
@@ -71,4 +71,5 @@
 
 .CodeMirror {
     height: 100% !important;
+    background: rgba(253, 246, 227, 0.4) !important;
 }

@@ -4,7 +4,9 @@
 
 
 ***Tasks***
-- add code mirror markdown editor [ok].
+- add code mirror markdown editor. [ok]
 - auto display the upload image. [ok]
 - auto delete unref image.
 - right part is so ugly. [ok]
+- add health check.
+- auto start and redirect.
