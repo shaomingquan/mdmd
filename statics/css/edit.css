@@ -16,8 +16,13 @@
     float: left;
     box-sizing: border-box;
 }
+.wrapper > .right {
+    overflow-y: scroll;
+}
 .wrapper > .left {
     border-right: 1px solid #ccc;
+    padding-top: 60px;
+    position: relative;
 }
 
 .filename {
@@ -26,6 +31,10 @@
     line-height: 60px;
     padding-left: 20px;
     font-size: 22px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
 .filecontent {
@@ -43,4 +52,8 @@
 
 .hidden {
     display: none;
+}
+
+.CodeMirror {
+    height: 100% !important;
 }
