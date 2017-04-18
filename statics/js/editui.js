@@ -88,6 +88,7 @@
         window.myCodeMirror = CodeMirror(writing, {
             value: document.getElementById('writingTmp').innerText,
             mode: "markdown",
+            lineWrapping: true,
             onchange: function () {
                 console.log(4324);
             }
@@ -107,7 +108,7 @@
         }
     });
     initCoder();
-    
+
     window.myCodeMirror.on('change', throttle(renderPreview, 200));
     window.myCodeMirror.on('change', throttle(save, 3000));
     writing.addEventListener('paste', pasteHandler);
