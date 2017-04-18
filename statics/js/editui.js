@@ -76,7 +76,10 @@
         var cd = e.clipboardData.items[0];
         if (cd.type.indexOf('image') > -1) {
             tools.ajaxFile(cd.getAsFile(), function (res) {
-                console.log(res);
+                res = JSON.parse(res);
+                if(res.state === 'ok') {
+                    myCodeMirror.replaceSelection('![](' + res.filepath + ')')
+                }
             })
         }
     }
@@ -84,7 +87,10 @@
     function initCoder () {
         window.myCodeMirror = CodeMirror(writing, {
             value: document.getElementById('writingTmp').innerText,
-            mode: "markdown"
+            mode: "markdown",
+            onchange: function () {
+                console.log(4324);
+            }
         });
     }
 
@@ -100,12 +106,13 @@
             this.setSelectionRange(start+indent.length,start+selected.length);
         }
     });
-    writing.addEventListener('input', throttle(renderPreview, 200));
-    writing.addEventListener('input', throttle(save, 3000));
+    initCoder();
+    
+    window.myCodeMirror.on('change', throttle(renderPreview, 200));
+    window.myCodeMirror.on('change', throttle(save, 3000));
     writing.addEventListener('paste', pasteHandler);
     title.addEventListener('input', throttle(updateName, 1000));
 
-    initCoder();
     renderPreview();
 
 } (window))

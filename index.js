@@ -4,7 +4,8 @@ var staticServer = require('./tools/static-server');
 var edit = require('./tools/edit');
 var list = require('./tools/list');
 var opapi = require('./tools/opapi');
-var upload = require('./tools/upload')
+var upload = require('./tools/upload');
+var image = require('./tools/image');
 
 var server = http.createServer(function (req, res) {
 
@@ -19,6 +20,9 @@ var server = http.createServer(function (req, res) {
     } else if (url.indexOf('/upload/') > -1) {
         // upload image
         upload(req, res);
+    } else if (url.indexOf('/images/') > -1) {
+        // image static server TODO
+        image(req, res);
     } else if (url.indexOf('/list/') > -1) {
         // list of markdown files
         list(req, res);

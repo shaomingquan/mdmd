@@ -31,7 +31,7 @@ function upload (req, res) {
                 } else {
                     res.end(JSON.stringify({
                         state: 'ok',
-                        filepath: filepath
+                        filepath: '/images/' + filename + '.png'
                     }));
                 }
             });
