@@ -13,10 +13,16 @@ function listFiles (req, res) {
                 mkdowns.push(file);
             }
         });
-
-        res.end(render(listTpl, {
-            files: mkdowns
-        }));
+        if(mkdowns.length) {
+            res.end(render(listTpl, {
+                files: mkdowns
+            }));
+        } else {
+            res.writeHead(301, {
+                Location: '/edit/' + Date.now() + '.md'
+            });
+            res.end();
+        }
     });
 }
 

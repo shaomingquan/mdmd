@@ -1,3 +1,10 @@
 #!/usr/bin/env node
 
-require('../index');
+var server = require('../index');
+var minimist = require('minimist');
+var argv = minimist(process.argv.slice(2));
+
+var port = argv.p || 3000;
+server({
+    port: port
+})

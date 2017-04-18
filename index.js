@@ -7,35 +7,41 @@ var opapi = require('./tools/opapi');
 var upload = require('./tools/upload');
 var image = require('./tools/image');
 
-var server = http.createServer(function (req, res) {
+module.exports = function (options) {
 
-    var url = req.url;
+    var server = http.createServer(function (req, res) {
 
-    if(url.indexOf('/op/') > -1) {
-        // delete or create or modify
-        opapi(req, res);
-    } else if(url.indexOf('/statics/') > -1) {
-        // static resource
-        staticServer(req, res);
-    } else if (url.indexOf('/upload/') > -1) {
-        // upload image
-        upload(req, res);
-    } else if (url.indexOf('/images/') > -1) {
-        // image static server TODO
-        image(req, res);
-    } else if (url.indexOf('/list/') > -1) {
-        // list of markdown files
-        list(req, res);
-    } else if (url.indexOf('/edit/') > -1) {
-        //edit the specific file
-        edit(req, res);
-    } else {
-        res.writeHead(302, {
-            Location: '/list/'
-        });
-        res.end ();
-    }
+        var url = req.url;
 
-});
+        if(url.indexOf('/op/') > -1) {
+            // delete or create or modify
+            opapi(req, res);
+        } else if(url.indexOf('/statics/') > -1) {
+            // static resource
+            staticServer(req, res);
+        } else if (url.indexOf('/upload/') > -1) {
+            // upload image
+            upload(req, res);
+        } else if (url.indexOf('/images/') > -1) {
+            // image static server TODO
+            image(req, res);
+        } else if (url.indexOf('/list/') > -1) {
+            // list of markdown files
+            list(req, res);
+        } else if (url.indexOf('/edit/') > -1) {
+            //edit the specific file
+            edit(req, res);
+        } else {
+            res.writeHead(302, {
+                Location: '/list/'
+            });
+            res.end ();
+        }
 
-server.listen(3000);
+    });
+
+    server.listen(options.port, function () {
+        console.log('mdmdserver is listening on port ' + options.port);
+    });
+
+}

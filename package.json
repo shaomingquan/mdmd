@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/shaomingquan/anymarkdown#readme",
   "dependencies": {
+    "minimist": "^1.2.0",
     "waterbear": "^1.0.4"
   }
 }
