@@ -13,12 +13,14 @@ function listFiles (req, res) {
                 mkdowns.push(file);
             }
         });
+
+        console.log(mkdowns, mkdowns.length);
         if(mkdowns.length) {
             res.end(render(listTpl, {
                 files: mkdowns
             }));
         } else {
-            res.writeHead(301, {
+            res.writeHead(302, {
                 Location: '/edit/' + Date.now() + '.md'
             });
             res.end();

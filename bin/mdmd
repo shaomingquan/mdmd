@@ -3,8 +3,13 @@
 var server = require('../index');
 var minimist = require('minimist');
 var argv = minimist(process.argv.slice(2));
+var cp = require('child_process');
 
 var port = argv.p || 3000;
 server({
-    port: port
+    port: port,
+    callback: function (options) {
+        console.log('mdmdserver is listening on port ' + options.port);
+        cp.execFile('open', ['http://localhost:' + options.port]);
+    }
 })

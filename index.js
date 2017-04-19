@@ -41,7 +41,7 @@ module.exports = function (options) {
     });
 
     server.listen(options.port, function () {
-        console.log('mdmdserver is listening on port ' + options.port);
+        options.callback(options);
     });
 
 }
