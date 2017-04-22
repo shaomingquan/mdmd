@@ -15,7 +15,6 @@ function upload (req, res) {
             writeImg();
         } else {
             fs.mkdir(dirpath, function () {
-                console.log('mkdir');
                 writeImg();
             });
         }

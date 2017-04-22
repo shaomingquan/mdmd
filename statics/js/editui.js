@@ -90,7 +90,7 @@
             mode: "markdown",
             lineWrapping: true,
             onchange: function () {
-                console.log(4324);
+
             }
         });
     }

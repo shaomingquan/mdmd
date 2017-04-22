@@ -13,3 +13,7 @@ server({
         cp.execFile('open', ['http://localhost:' + options.port]);
     }
 })
+
+if(!argv.noclear) {
+    require('../clear');
+}

@@ -14,7 +14,7 @@ function listFiles (req, res) {
             }
         });
 
-        console.log(mkdowns, mkdowns.length);
+
         if(mkdowns.length) {
             res.end(render(listTpl, {
                 files: mkdowns
