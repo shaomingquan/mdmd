@@ -7,36 +7,34 @@ function generateImageName () {
 }
 
 function upload (req, res) {
-    req.on('data', function (data) {
-        var filename = generateImageName();
-        var dirpath = process.cwd() + '/images/'
-        var filepath = dirpath + filename + '.png';
-        fs.exists(dirpath, function (result) {
-            if(result) {
+    var filename = generateImageName();
+    var dirpath = process.cwd() + '/images/'
+    var filepath = dirpath + filename + '.png';
+    fs.exists(dirpath, function (result) {
+        if(result) {
+            writeImg();
+        } else {
+            fs.mkdir(dirpath, function () {
+                console.log('mkdir');
                 writeImg();
-            } else {
-                fs.mkdir(dirpath, function () {
-                    console.log('mkdir');
-                    writeImg();
-                });
-            }
-        })
-
-        function writeImg () {
-            fs.writeFile(filepath, data, function (err) {
-                if(err) {
-                    res.end(JSON.stringify({
-                        state: 'failed'
-                    }));
-                } else {
-                    res.end(JSON.stringify({
-                        state: 'ok',
-                        filepath: '/images/' + filename + '.png'
-                    }));
-                }
             });
         }
-    });
+    })
+
+    function writeImg () {
+        var stream = fs.createWriteStream(filepath);
+        try {
+            req.pipe(stream);
+            res.end(JSON.stringify({
+                state: 'ok',
+                filepath: '/images/' + filename + '.png'
+            }));
+        } catch (e) {
+            res.end(JSON.stringify({
+                state: 'failed'
+            }));
+        }
+    }
 }
 
 module.exports = upload;
