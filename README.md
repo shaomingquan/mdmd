@@ -6,7 +6,7 @@ prepare a director in your mac, enter it & run mdmd, the webapp auto start in th
 
 you can use capture screen tool or just copy from websites and paste the image to mdmd, it saved!
 
-so using github and cli tool to manage your posts sames easy, and the images can display on github is the same as your localhost. such as  [https://github.com/shaomingquan/learning/blob/master/kafka.md](https://github.com/shaomingquan/learning/blob/master/kafka.md)
+so using github and cli tool to manage your posts sames easy, and the images can display on github is the same as your localhost. such as  [https://github.com/shaomingquan/articles/blob/master/_learning-kafka.md](https://github.com/shaomingquan/articles/blob/master/_learning-kafka.md)
 
 ***Tasks***
 - add code mirror markdown editor. [ok]
@@ -17,5 +17,6 @@ so using github and cli tool to manage your posts sames easy, and the images can
 - auto start and redirect. [ok]
 - add delete file btn.
 - beautify list page.
+- language issues.
 
 there's still something to do
