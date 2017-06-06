@@ -18,5 +18,8 @@ so using github and cli tool to manage your posts sames easy, and the images can
 - add delete file btn.
 - beautify list page.
 - language issues.
+- <hr> style byg.
+- edit meta info in main page.
+- build content page when commit(git hook).
 
 there's still something to do
