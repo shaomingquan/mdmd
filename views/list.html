@@ -8,13 +8,17 @@
         <link rel="stylesheet" href="/statics/css/list.css">
     </head>
     <body>
-        <a class='new-md' href="/edit/<%- Date.now() + '.md' %>">new markdown</a>
+        <div class="top">
+          <a class='new-md' href="/edit/<%- Date.now() + '.md' %>">+</a>
+          <input type="text" name="search" placeholder="SAERCH" value="">
+        </div>
         <div class="list-wrapper">
             <% for(var i = 0 ; i < files.length ; i ++) { file = files[i] %>
                 <div class="item">
-                    <p><a href="/edit/<%- file.trim() %>"><%- file %></a></p>
+                    <a target="_blank" href="/edit/<%- file.trim() %>"><%- file %></a>
                 </div>
             <% } %>
         </div>
     </body>
+    <script src="/statics/js/listui.js"></script>
 </html>
