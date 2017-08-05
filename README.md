@@ -15,11 +15,12 @@ so using github and cli tool to manage your posts seems easy, and the images can
 - right part is so ugly. [ok]
 - add health check.
 - auto start and redirect. [ok]
-- ~~add delete file btn.~~
+- add delete file btn.
 - beautify list page. [ok]
 - language issues.
 - edit meta info in main page.
 - build content page when commit(git hook).
 - add draft feature.
+- add if the image should delete, image gallery.
 
 there's still something to do, it's nice :)
