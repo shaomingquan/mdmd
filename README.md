@@ -22,5 +22,6 @@ so using github and cli tool to manage your posts seems easy, and the images can
 - build content page when commit(git hook).
 - add draft feature.
 - add if the image should delete, image gallery.
+- commit by ui.
 
 there's still something to do, it's nice :)
