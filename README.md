@@ -23,5 +23,6 @@ so using github and cli tool to manage your posts seems easy, and the images can
 - add draft feature.
 - add if the image should delete, image gallery.
 - commit by ui.
+- add author, for teamwork.
 
 there's still something to do, it's nice :)
